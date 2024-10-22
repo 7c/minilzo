@@ -1,4 +1,4 @@
-import { compress, decompress, closeLibrary } from  "jsr:@7c/minilzo"
+import { compress, decompress, closeLibrary } from  "./main.ts"
 
 const input = new Uint8Array(new TextEncoder().encode("Hello, world!"));
 const output = new Uint8Array(input.length*4);  // Ensure this is large enough
@@ -15,3 +15,6 @@ try {
 } finally {
     closeLibrary();
 }
+
+
+export const version = "0.1.3"

@@ -2,8 +2,10 @@ let libPath: string;
 let arch:string = Deno.build.arch
 const os = Deno.build.os
 
-if (arch === "aarch64") arch = "arm64";
+import * as test from "./demo.ts"
 
+if (arch === "aarch64") arch = "arm64";
+console.log(test.version)
 // Use import.meta.url to get the current directory of the module
 console.log(import.meta)
 const basePath = new URL('.', import.meta.url).pathname;
