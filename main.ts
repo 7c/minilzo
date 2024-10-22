@@ -1,17 +1,25 @@
 let libPath: string;
-switch (Deno.build.os) {
+let arch:string = Deno.build.arch
+const os = Deno.build.os
+
+if (arch === "aarch64") arch = "arm64" // uname and deno are using different arch names
+
+
+switch (os) {
   case "linux":
-    libPath = "./bin/minilzo.so";
+    libPath = `./bin/minilzo-${arch}.so`;
     break;
   case "darwin":
-    libPath = "./bin/minilzo.dylib";
+    libPath = `./bin/minilzo-${arch}.dylib`;
     break;
   case "windows":
-    libPath = "./bin/minilzo.dll";
+    libPath = `./bin/minilzo-${arch}.dll`;
     break;
   default:
-    throw new Error(`Unsupported OS: ${Deno.build.os}`);
+    throw new Error(`Unsupported OS: ${os}`);
 }
+console.log(`Loading library from: ${libPath}`);
+
 
 // minilzo is exposing only these 3 functions
 const dylib = Deno.dlopen(libPath, {

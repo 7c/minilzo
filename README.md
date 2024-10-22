@@ -2,8 +2,29 @@
 - compatible with deno2
 - uses minilzo 2.10 from http://www.oberhumer.com/opensource/lzo/
 
+## Usage
+see the [demo](./demo.ts) file
 
+## Building
+since minilzo is a C library, we need to build it for each architecture. Most of end-consumers do not want to build it, thats why this library has pre-built binaries for Linux, MacOS (arm64). I suggest you to compile it on your own anyways, not to trust pre-built binaries generally.
 
+### Linux arm64, armv7l, x86_64
+this will build the minilzo library for each architecture and copy it to the bin/ folder. You will need docker installed.
+```
+docker build -t minilzo-builder .
+docker run --rm -v $(pwd)/bin:/output minilzo-builder
+```
+### MacOS(arm64, x86_64), Windows(x86_64)
+Native Makefile detects the architecture and available compiler and builds the library. Makefile supports gcc and clang compilers. Make sure you have the necessary compilers installed.
+```
+make
+```
+
+## Install
+### JSR
+```
+import * as minilzo from "jsr:@7c/minilzo"
+```
 
 
 ## Copyright

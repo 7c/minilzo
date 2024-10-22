@@ -1,7 +1,7 @@
 import { compress, decompress, closeLibrary } from "./main.ts";
 
 const input = new Uint8Array(new TextEncoder().encode("Hello, world!"));
-const output = new Uint8Array(1024);  // Ensure this is large enough
+const output = new Uint8Array(input.length*4);  // Ensure this is large enough
 
 try {
     const compressedSize = compress(input, output);
