@@ -40,6 +40,6 @@ export function libPath(): string {
 
 export * from "./Minilzo.ts";
 
-ensureBinariesExist();
+// ensureBinariesExist();
 
 await Deno.stat(`${basePath}bin/minilzo-arm64.so`);
