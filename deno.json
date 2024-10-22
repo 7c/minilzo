@@ -1,5 +1,5 @@
 {
-  "version": "0.1.9",
+  "version": "0.1.10",
   "tasks": {
     "dev": "deno run --watch main.ts"
   },
@@ -11,8 +11,5 @@
   "exports": {
     ".": "./main.ts"
   },
-  "required": [
-    "bin/minilzo-arm64.so"
-  ],
   "license": "GPL-2.0-or-later"
 }
