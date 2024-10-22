@@ -16,5 +16,6 @@ try {
     console.error(error);
 } finally {
     minilzo.closeLibrary();
+
 }
 
