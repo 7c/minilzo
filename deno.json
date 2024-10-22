@@ -1,5 +1,5 @@
 {
-  "version": "0.1.12",
+  "version": "0.1.13",
   "tasks": {
     "dev": "deno run --watch main.ts"
   },
@@ -7,7 +7,7 @@
     "@std/assert": "jsr:@std/assert@1",
     "debug": "npm:debug@^4.3.7"
   },
-  "name": "@7c/test1",
+  "name": "@7c/minilzo",
   "exports": {
     ".": "./main.ts"
   },
