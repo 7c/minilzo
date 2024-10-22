@@ -1,4 +1,5 @@
 {
+  "version": "0.1.5",
   "tasks": {
     "dev": "deno run --watch main.ts"
   },
@@ -7,9 +8,6 @@
     "debug": "npm:debug@^4.3.7"
   },
   "name": "@7c/test1",
-  "version": "0.1.4",
-  "exports": {
-    "./main.ts": "./main.ts"
-  },
+  "exports": "./main.ts",
   "license": "GPL-2.0-or-later"
 }
