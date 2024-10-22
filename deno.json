@@ -9,11 +9,10 @@
   },
   "name": "@7c/test1",
   "exports": {
-    ".": "./main.ts",
-    "./bin/minilzo-arm64.so": "./bin/minilzo-arm64.so",
-    "./bin/minilzo-x86_64.so": "./bin/minilzo-x86_64.so",
-    "./bin/minilzo-armv7l.so": "./bin/minilzo-armv7l.so",
-    "./bin/minilzo-arm64.dylib": "./bin/minilzo-arm64.dylib"
+    ".": "./main.ts"
   },
+  "required": [
+    "bin/minilzo-arm64.so"
+  ],
   "license": "GPL-2.0-or-later"
 }
