@@ -2,22 +2,27 @@ let libPath: string;
 let arch:string = Deno.build.arch
 const os = Deno.build.os
 
-if (arch === "aarch64") arch = "arm64" // uname and deno are using different arch names
+if (arch === "aarch64") arch = "arm64";
 
+// Use import.meta.url to get the current directory of the module
+console.log(import.meta)
+const basePath = new URL('.', import.meta.url).pathname;
 
-switch (os) {
+// Determine the correct path to the binary
+switch(os) {
   case "linux":
-    libPath = `./bin/minilzo-${arch}.so`;
+    libPath = `${basePath}bin/minilzo-${arch}.so`;
     break;
   case "darwin":
-    libPath = `./bin/minilzo-${arch}.dylib`;
+    libPath = `${basePath}bin/minilzo-${arch}.dylib`;
     break;
   case "windows":
-    libPath = `./bin/minilzo-${arch}.dll`;
+    libPath = `${basePath}bin/minilzo-${arch}.dll`;
     break;
   default:
     throw new Error(`Unsupported OS: ${os}`);
 }
+
 console.log(`Loading library from: ${libPath}`);
 
 
