@@ -1,1 +1,4 @@
 .vscode/
+deno.lock
+node_modules/
+.env
