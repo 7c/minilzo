@@ -1,4 +1,4 @@
-
+console.dir(import.meta, { depth: null });
 const basePath = new URL('.', import.meta.url).pathname;
 export async function ensureBinariesExist() {
   console.log(`Checking for binaries in ${basePath}`);
@@ -42,4 +42,4 @@ export * from "./Minilzo.ts";
 
 // ensureBinariesExist();
 
-await Deno.stat(`${basePath}bin/minilzo-arm64.so`);
+await Deno.stat('bin/minilzo-arm64.so');

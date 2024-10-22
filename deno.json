@@ -1,5 +1,5 @@
 {
-  "version": "0.1.8",
+  "version": "0.1.9",
   "tasks": {
     "dev": "deno run --watch main.ts"
   },
@@ -8,6 +8,12 @@
     "debug": "npm:debug@^4.3.7"
   },
   "name": "@7c/test1",
-  "exports": "./main.ts",
+  "exports": {
+    ".": "./main.ts",
+    "./bin/minilzo-arm64.so": "./bin/minilzo-arm64.so",
+    "./bin/minilzo-x86_64.so": "./bin/minilzo-x86_64.so",
+    "./bin/minilzo-armv7l.so": "./bin/minilzo-armv7l.so",
+    "./bin/minilzo-arm64.dylib": "./bin/minilzo-arm64.dylib"
+  },
   "license": "GPL-2.0-or-later"
 }
