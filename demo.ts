@@ -1,9 +1,9 @@
-import { libPath, Minilzo } from  "./main.ts"
+import { Minilzo, libName } from  "./main.ts"
+import * as path from "jsr:@std/path"
 
-const minilzo = new Minilzo(libPath());
-
+const minilzo = new Minilzo(path.join(import.meta.dirname!, "bin", libName()));
 const input = new Uint8Array(new TextEncoder().encode("Hello, world!"));
-const output = new Uint8Array(input.length*4);  // Ensure this is large enough
+const output = new Uint8Array(input.length*4);
 
 try {
     const compressedSize = minilzo.compress(input, output);
@@ -16,6 +16,5 @@ try {
     console.error(error);
 } finally {
     minilzo.closeLibrary();
-
 }
 

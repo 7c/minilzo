@@ -20,10 +20,30 @@ Native Makefile detects the architecture and available compiler and builds the l
 make
 ```
 
+### Precompiled binaries
+you can download precompiled binaries from [./bin folder](https://github.com/7c/minilzo/tree/main/bin). Create a new folder and wget/curl the binaries into the folder. and use libName() function to get the correct library name. Use with caution. I am putting them here for myself as cheatsheet, you should be compiling them yourself.
+```
+test -e ./bin || mkdir ./bin
+## MacOS Arm64
+wget https://github.com/7c/minilzo/raw/refs/heads/main/bin/minilzo-arm64.dylib -O ./bin/minilzo-arm64.dylib
+## MacOS x86_64
+...coming soon....
+## Linux Arm64
+wget https://github.com/7c/minilzo/raw/refs/heads/main/bin/minilzo-arm64.so -O ./bin/minilzo-arm64.so
+## Linux Armv7l
+wget https://github.com/7c/minilzo/raw/refs/heads/main/bin/minilzo-armv7l.so -O ./bin/minilzo-armv7l.so
+## Linux x86_64
+wget https://github.com/7c/minilzo/raw/refs/heads/main/bin/minilzo-x86_64.so -O ./bin/minilzo-x86_64.so
+## Windows x86_64
+...coming soon....
+## Windows Arm64
+...coming soon....
+```
+
 ## Install
 ### JSR
 ```
-import * as minilzo from "jsr:@7c/minilzo"
+import { Minilzo, libName } from "jsr:@7c/minilzo"
 ```
 
 
