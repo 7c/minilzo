@@ -19,7 +19,7 @@ export function libName(): string {
     default:
       throw new Error(`Unsupported OS: ${os}`);
   }
-
+  
   return libName;
 }
 

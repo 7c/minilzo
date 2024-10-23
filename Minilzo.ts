@@ -1,4 +1,5 @@
 import debug from "debug";
+import * as path from "jsr:@std/path"
 const dbg = debug("_Minilzo");
 
 export class Minilzo {
@@ -8,9 +9,11 @@ export class Minilzo {
     private dylib: Deno.DynamicLibrary<Deno.ForeignLibraryInterface>;
 
     constructor(libPath: string) {
-        dbg("Minilzo constructor");
+        dbg(`Constructor(${libPath})`);
+        const fileExists = Deno.statSync(libPath).isFile;
+        if (!fileExists) throw new Error(`File does not exist: ${libPath}`);
         // minilzo is exposing only these 3 functions
-        this.dylib = Deno.dlopen(libPath, {
+        this.dylib = Deno.dlopen(path.join(libPath), {
             lzo1x_1_compress: {
                 parameters: ["pointer", "usize", "pointer", "pointer", "pointer"],
                 result: "i32",
